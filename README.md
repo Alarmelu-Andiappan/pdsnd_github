@@ -15,7 +15,9 @@ Bikeshare Data Project
  After filtering the dataset, users will see the statistical result of the data, and choose to start again or exit.
  Users can also get the details of the **raw data** from Chicago, Washington and New York city. 
 
-
+### Requirements
+`Python 3.x` and `Pandas`
+I used miniconda to install python and pandas in my linux os. 
 
 ### Files used
 * bikeshare.py
@@ -24,6 +26,5 @@ Bikeshare Data Project
 * new_york_city.csv
 
 ### Credits
-
 [Stack Overflow](https://stackoverflow.com)
 
