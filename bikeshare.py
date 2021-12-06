@@ -283,8 +283,11 @@ def main():
         raw_data(city)
         """user could choose data and filter dataset and analyse all over again."""
         restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
-            break
+        while (restart.lower() not in ('yes' , 'no')):
+            print("Please enter the option yes or no")
+            restart=input('\nValid options are yes or no.\n')
+        if restart.lower()=='no':
+                break
 
 
 if __name__ == "__main__":
