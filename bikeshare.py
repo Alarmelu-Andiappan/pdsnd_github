@@ -31,7 +31,7 @@ def fn_city():
     city = ''
     while city not in ('chicago', 'new york', 'washington'):
 
-        city = input("Would you like to see the data for Chicago, New York or Washington:   \n")
+        city = input("Would you like to see the data for Chicago, New York or Washington?  \n")
         city = city.lower().strip()
         print("You have selected {} to analyze  ".format(city))
         if city not in ('chicago', 'new york', 'washington'):
@@ -48,7 +48,7 @@ def fn_filtermdn():
 
     while filtermdn not in ('month', 'day', 'both', 'none'):
         filtermdn = input(
-            "How Would you like to filter the data: month,day,both or none. Type none for no time filter \n")
+            "How Would you like to filter the data: month,day,both or none? Type none for no time filter \n")
 
         filtermdn = filtermdn.lower().strip()
         print("you have selected {}  to analyse ".format(filtermdn))
@@ -229,7 +229,7 @@ def station_stats(df):
 
 
 def raw_data(city):
-    """To see 5 lines of Raw Data"""
+    """To see 5 lines of Raw Data."""
 
     rawdf = pd.read_csv(CITY_DATA[city])
     rawdata = ''
@@ -248,7 +248,7 @@ def raw_data(city):
 
         i = i + 5
 
-        """ To see five more lines following the previous data"""
+        """ To see five more lines following the previous data."""
         rawdata = input('\nWould you like to see five more lines of raw data? Enter yes or no.\n')
         while (rawdata.lower() not in ('yes', 'no')):
             print("Please enter the option as yes or no")
@@ -259,17 +259,35 @@ def raw_data(city):
 
 
 def main():
+    """
+    This is the main function. 
+    First dataframe is loaded, with the input from the user.
+    user can filter the data by selecting particular city Chicago, New York or Washington.
+    for month user has 6 individual options Jan, Feb, Mar, Apr, May and June.
+    for day user has 7 options from 1-7 referring Sunday-Saturday.
+    If month and day are not specified, then the data reflects all data from the particular city.
+    
+    """
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
+        """Displays statistics on the most frequent times of travel."""
         time_stats(df, month, day)
+        """Displays statistics on the most popular stations and trip."""
         station_stats(df)
-        trip_duration_stats(df)
+        """Displays statistics on the total and average trip duration."""
+        trip_duration_stats(df) 
+        """Displays statistics on bikeshare users."""
         user_stats(df)
+        """Displays five lines of raw data for the selected city."""
         raw_data(city)
+        """user could choose data and filter dataset and analyse all over again."""
         restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
-            break
+        while (restart.lower() not in ('yes' , 'no')):
+            print("Please enter the option yes or no")
+            restart=input('\nValid options are yes or no.\n')
+        if restart.lower()=='no':
+                break
 
 
 if __name__ == "__main__":
