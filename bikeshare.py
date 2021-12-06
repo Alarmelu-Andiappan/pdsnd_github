@@ -31,7 +31,7 @@ def fn_city():
     city = ''
     while city not in ('chicago', 'new york', 'washington'):
 
-        city = input("Would you like to see the data for Chicago, New York or Washington:   \n")
+        city = input("Would you like to see the data for Chicago, New York or Washington?  \n")
         city = city.lower().strip()
         print("You have selected {} to analyze  ".format(city))
         if city not in ('chicago', 'new york', 'washington'):
@@ -48,7 +48,7 @@ def fn_filtermdn():
 
     while filtermdn not in ('month', 'day', 'both', 'none'):
         filtermdn = input(
-            "How Would you like to filter the data: month,day,both or none. Type none for no time filter \n")
+            "How Would you like to filter the data: month,day,both or none? Type none for no time filter \n")
 
         filtermdn = filtermdn.lower().strip()
         print("you have selected {}  to analyse ".format(filtermdn))
